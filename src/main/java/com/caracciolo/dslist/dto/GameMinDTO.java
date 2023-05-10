@@ -1,6 +1,7 @@
 package com.caracciolo.dslist.dto;
 
 import com.caracciolo.dslist.entities.Game;
+import com.caracciolo.dslist.projections.GameMinProjection;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,9 +21,17 @@ public class GameMinDTO {
     public GameMinDTO(Game entity) {
         id = entity.getId();
         title = entity.getTitle();
-        year =  entity.getYear();
-        imgUrl =  entity.getImgUrl();
-        shortDescription =  entity.getShortDescription();
+        year = entity.getYear();
+        imgUrl = entity.getImgUrl();
+        shortDescription = entity.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
